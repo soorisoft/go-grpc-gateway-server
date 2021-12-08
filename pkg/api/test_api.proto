@@ -1,0 +1,44 @@
+syntax = "proto3";
+package api;
+option go_package = "github.com/soorisoft/go-grpc-gateway-server/pkg/api";
+
+import "google/api/annotations.proto";
+
+// Test services
+service TestServices {
+
+  // SayHello service generates a greeting message. POST example
+  rpc SayHello(SayHelloRequest) returns (SayHelloResponse) {
+    option (google.api.http) = {
+      post: "/v1/greet"
+      body: "*"
+    };
+  }
+
+  // Say reads the name from url and greet. GET example
+  rpc SayHi(SayHiRequest) returns (SayHiResponse) {
+    option (google.api.http) = {
+      get: "/sayhi/{name}"
+    };
+  }
+}
+
+// Request Message for greeting service
+message SayHelloRequest {
+  string name = 1;
+}
+
+// Response Message for greeting service
+message SayHelloResponse {
+  string msg = 1;
+}
+
+// Request Message for Say Hi service
+message SayHiRequest {
+  string name = 1;
+}
+
+// Response Message for Say Hi service
+message SayHiResponse {
+  string msg = 1;
+}

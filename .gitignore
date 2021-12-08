@@ -1,0 +1,13 @@
+*.DS_Store
+*._DS_Store
+
+*.log
+.jfrog
+*.tgz
+*.out
+
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib

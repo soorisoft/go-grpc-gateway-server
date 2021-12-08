@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  backend:
+    container_name: grpc_gateway_server_container
+    image: "grpc-gateway-server:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9091:9091/tcp"
